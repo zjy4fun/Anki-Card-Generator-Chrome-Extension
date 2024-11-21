@@ -1,0 +1,50 @@
+{
+  "name": "anki card generator",
+  "version": "1.0.0",
+  "description": "A Chrome extension to generate Anki cards from selected text",
+  "main": "index.js",
+  "scripts": {
+    "watch": "webpack --config webpack/webpack.dev.js --watch",
+    "build": "webpack --config webpack/webpack.prod.js",
+    "clean": "rimraf dist",
+    "test": "npx jest",
+    "style": "prettier --write \"src/**/*.{ts,tsx}\""
+  },
+  "author": "",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/zjy4fun/Anki-Card-Generator-Chrome-Extension.git"
+  },
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "@testing-library/jest-dom": "^5.16.5",
+    "@testing-library/react": "^13.4.0",
+    "@testing-library/user-event": "^13.5.0",
+    "autoprefixer": "^10.4.14",
+    "install": "^0.13.0",
+    "postcss": "^8.4.24",
+    "react-icons": "^4.9.0",
+    "react-scripts": "5.0.1",
+    "tailwindcss": "^3.3.2",
+    "web-vitals": "^2.1.4"
+  },
+  "devDependencies": {
+    "@types/chrome": "0.0.158",
+    "@types/jest": "^29.5.0",
+    "@types/react": "^18.0.29",
+    "@types/react-dom": "^18.0.11",
+    "copy-webpack-plugin": "^9.0.1",
+    "glob": "^7.1.6",
+    "jest": "^29.5.0",
+    "prettier": "^2.2.1",
+    "rimraf": "^3.0.2 ",
+    "ts-jest": "^29.1.0",
+    "ts-loader": "^8.0.0",
+    "typescript": "^5.0.4",
+    "webpack": "^5.94.0",
+    "webpack-cli": "^4.0.0",
+    "webpack-merge": "^5.0.0"
+  }
+}
