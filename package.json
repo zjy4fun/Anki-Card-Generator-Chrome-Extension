@@ -17,12 +17,15 @@
     "url": "https://github.com/zjy4fun/Anki-Card-Generator-Chrome-Extension.git"
   },
   "dependencies": {
+    "@monaco-editor/react": "^4.6.0",
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
     "dotenv": "^16.4.5",
     "dotenv-webpack": "^8.1.0",
     "install": "^0.13.0",
+    "lucide-react": "^0.460.0",
+    "monaco-editor": "^0.52.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-icons": "^4.12.0",
