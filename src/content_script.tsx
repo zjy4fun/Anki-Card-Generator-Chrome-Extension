@@ -25,6 +25,11 @@ function createEditor(c: string) {
             document.body.removeChild(container);
         });
     }
+
+    const start = c.indexOf('[');
+    const end = c.lastIndexOf(']');
+    c = c.substring(start, end + 1);
+
     ReactDOM.render(<AnkiModal c={c} onClose={() => {
         document.body.removeChild(container);
     }} handleSave={handleSave}/>, container);
