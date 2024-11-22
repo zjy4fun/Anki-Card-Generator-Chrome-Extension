@@ -11,3 +11,5 @@ release/
 dist.zip
 
 .env
+!.env.example
+

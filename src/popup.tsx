@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from "react";
 import {createRoot} from "react-dom/client";
 import {FaEye, FaEyeSlash} from 'react-icons/fa';
+import "./styles/main.css";
 
 const AnkiPage = () => {
     const [openAIKey, setOpenAIKey] = useState('');
@@ -14,7 +15,7 @@ const AnkiPage = () => {
     useEffect(() => {
         const config = JSON.parse(localStorage.getItem("ankiConfig") as string);
         if (config) {
-            const {openAIKey, openAIUrl,modelName, ankiServerAddress, ankiDeskName} = config;
+            const {openAIKey, openAIUrl, modelName, ankiServerAddress, ankiDeskName} = config;
             setOpenAIKey(openAIKey);
             setOpenAIUrl(openAIUrl);
             setModelName(modelName);

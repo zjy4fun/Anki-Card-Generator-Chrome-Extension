@@ -30,6 +30,24 @@ module.exports = {
                 use: "ts-loader",
                 exclude: /node_modules/,
             },
+            {
+                test: /\.css$/,
+                use: [
+                    'style-loader',
+                    'css-loader',
+                    {
+                        loader: 'postcss-loader',
+                        options: {
+                            postcssOptions: {
+                                plugins: [
+                                    require('tailwindcss'),
+                                    require('autoprefixer'),
+                                ],
+                            },
+                        },
+                    },
+                ],
+            },
         ],
     },
     resolve: {
@@ -41,12 +59,12 @@ module.exports = {
             options: {},
         }),
         new Dotenv({
-            path: '.env', // 默认的 .env 文件路径
-            safe: true, // 加载 .env.example
-            allowEmptyValues: true, // 允许空值
-            systemvars: true, // 加载所有系统环境变量
-            silent: true, // 隐藏任何错误
-            defaults: false // 不加载 .env.defaults
+            path: '.env',
+            safe: true,
+            allowEmptyValues: true,
+            systemvars: true,
+            silent: true,
+            defaults: false
         })
     ],
 };

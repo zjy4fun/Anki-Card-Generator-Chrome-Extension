@@ -30,7 +30,9 @@ function handleContextMenu(info: any) {
         const text = "请将下列描述提取成anki卡片的形式, 描述: " + info.selectionText + "\n并且以[{\"front\": \"xxx\", \"back\": \"xxx\"}]格式返回";
         getGPTResult(text).then((result) => {
             chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
+                console.log("tabs = ", tabs);
                 if (tabs[0]?.id) {
+                    console.log("result = ", result);
                     // 向content script发送消息
                     chrome.tabs.sendMessage(tabs[0].id, {
                         type: 'SHOW_EDITOR',
@@ -44,7 +46,7 @@ function handleContextMenu(info: any) {
 
 console.log(process.env.API_URL);
 
-const defaultAPIUrl = process.env.API_URL ?? "http://localhost:9090/v1";
+const defaultAPIUrl = process.env.API_URL ?? "http://localhost:9090/v1/chat/completions";
 
 async function getGPTResult(text: any) {
     const config = await getAnkiConfig() as Config;
