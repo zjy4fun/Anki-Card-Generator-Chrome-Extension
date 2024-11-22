@@ -42,10 +42,14 @@ function handleContextMenu(info: any) {
     }
 }
 
+console.log(process.env.API_URL);
+
+const defaultAPIUrl = process.env.API_URL ?? "http://localhost:9090/v1";
+
 async function getGPTResult(text: any) {
     const config = await getAnkiConfig() as Config;
     const GPT_API_KEY = config.openAIKey ?? "broswer-copilot-4482"
-    const API_URL = config.openAIUrl ?? "http://localhost:9090/v1/chat/completions";
+    const API_URL = config.openAIUrl ?? defaultAPIUrl;
     const MODEL_NAME = config.modelName ?? "ERNIE-Speed-8K";
 
     const response = await fetch(API_URL, {
@@ -145,7 +149,7 @@ function getAnkiConfig() {
                 resolve(result.ankiConfig as Config);
             } else {
                 resolve({
-                    openAIUrl: "http://localhost:9090/v1/chat/completions",
+                    openAIUrl: defaultAPIUrl,
                     openAIKey: "broswer-copilot-4482",
                     modelName: "ERNIE-Speed-8K",
                     ankiDeskName: "default",
