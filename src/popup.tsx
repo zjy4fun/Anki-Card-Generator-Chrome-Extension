@@ -53,7 +53,7 @@ const AnkiPage = () => {
                 <div className="relative w-3/4">
                     <input
                         type={'text'}
-                        placeholder="http://localhost:9090/v1"
+                        placeholder="http://localhost:9090/v1/chat/completions"
                         value={openAIUrl}
                         onChange={(e) => {
                             setOpenAIUrl(e.target.value);
