@@ -9,3 +9,5 @@ tmp/
 release/
 
 dist.zip
+
+.env
