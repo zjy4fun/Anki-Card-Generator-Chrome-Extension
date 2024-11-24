@@ -35,6 +35,7 @@ function handleContextMenu(info: any) {
                 if (tabs[0]?.id) {
                     console.log("result = ", result);
                     // 向content script发送消息
+                    // TODO bug https://github.com/zjy4fun/Anki-Card-Generator-Chrome-Extension/issues/9
                     chrome.tabs.sendMessage(tabs[0].id, {
                         type: 'SHOW_EDITOR',
                         content: result
