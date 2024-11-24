@@ -30,6 +30,7 @@ function handleContextMenu(info: any) {
         const text = "请将下列描述提取成anki卡片的形式, 描述: " + info.selectionText + "\n并且以[{\"front\": \"xxx\", \"back\": \"xxx\"}]格式返回";
         getGPTResult(text).then((result) => {
             chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
+                //TODO  tabs.length == 0, why?
                 console.log("tabs = ", tabs);
                 if (tabs[0]?.id) {
                     console.log("result = ", result);
