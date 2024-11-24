@@ -6,6 +6,13 @@ interface Config {
     ankiServerAddress: string;
 }
 
+// TODO I dot not know what is the purpose of this function, these code from the template project
+function polling() {
+    setTimeout(polling, 1000 * 30);
+}
+
+polling();
+
 chrome.runtime.onInstalled.addListener(() => {
     chrome.contextMenus.create({
         id: "add-to-anki",
@@ -114,7 +121,6 @@ async function saveAnki(result: any) {
         const currentResult = resultArray[i];
         requestData.params.note.fields.Front = currentResult.front;
         requestData.params.note.fields.Back = currentResult.back;
-
         fetch(ANKI_SERVER_ADDRESS, {
             method: "POST",
             // @ts-ignore
@@ -165,10 +171,13 @@ function getAnkiConfig() {
 }
 
 function showNotification(message: any) {
-    chrome.notifications.create({
-        type: "basic",
-        title: "Anki Card Created",
-        message: message,
-        iconUrl: "unload.png",
-    });
+    // TODO bug: Uncaught (in promise) Error: Unable to download all specified images
+    // chrome.notifications.create({
+    //     type: "basic",
+    //     title: "Anki Card Created",
+    //     message: message,
+    //     iconUrl: "unload.png",
+    // });
+
+    console.log("showNotification: ", message);
 }
